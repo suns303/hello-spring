@@ -19,11 +19,11 @@
 
 
     </bean>
-    <bean id = "bbsController" class="kr.re.kitri.hello.BbsController">
+    <bean id = "bbsController" class="kr.re.kitri.hello.controller.BbsController">
 
     </bean>
 
-    <bean id = "amigoController" class="kr.re.kitri.hello.AmigoController">
+    <bean id = "amigoController" class="kr.re.kitri.hello.controller.AmigoController">
 
     </bean>
 

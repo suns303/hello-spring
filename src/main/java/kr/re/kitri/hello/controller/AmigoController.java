@@ -1,4 +1,4 @@
-package kr.re.kitri.hello;
+package kr.re.kitri.hello.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
