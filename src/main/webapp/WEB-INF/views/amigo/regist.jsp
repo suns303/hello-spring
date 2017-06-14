@@ -30,7 +30,7 @@
                 <span class="input-group-addon">
                 <i class="glyphicon glyphicon-ok-sign"></i>친구이름
                 </span>
-        <input type="text" name="friend_name" class="form-control" placeholder="친구이름">
+        <input type="text" name="friendname" class="form-control" placeholder="친구이름">
     </div>
 
 
@@ -38,7 +38,7 @@
                 <span class="input-group-addon">
                 <i class="glyphicon glyphicon-ok-sign"></i>핸드폰
                 </span>
-        <input type="text" name="phone_number" class="form-control" placeholder="핸드폰">
+        <input type="text" name="phonenumber" class="form-control" placeholder="핸드폰">
     </div>
 
 

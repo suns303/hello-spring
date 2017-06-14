@@ -1,5 +1,9 @@
 package kr.re.kitri.hello.controller;
 
+import kr.re.kitri.hello.common.MockAmigo;
+import kr.re.kitri.hello.common.MockArticle;
+import kr.re.kitri.hello.model.Amigo;
+import kr.re.kitri.hello.model.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,50 +11,53 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by danawacomputer on 2017-06-12.
  */
 @Controller
 public class AmigoController {
 
+    @RequestMapping("/amigo/regist/all")
+    public ModelAndView AmigoRegistAll(){
+
+        MockAmigo mockAmigo = new MockAmigo();
+        List<Amigo> list = mockAmigo.getAmigo();
+
+        return new ModelAndView("/amigo/amigo_regist_all")
+                .addObject("list", list);
+    }
+
+    @RequestMapping(value = "/amigo/regist/{id}", method = RequestMethod.GET)
+    public ModelAndView AmigoRegistId(@PathVariable("id") String id){
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("amigo/amigo_regist_id");
+        mav.addObject("id", id);
+        return mav;
+    }
+
     @RequestMapping(value = "/amigo/regist", method = RequestMethod.GET)
-    public String regist(){
-        return "amigo/regist";
+    public String AmigoRegist(){
+
+        return "amigo/amigo_regist";
     }
 
-    @RequestMapping("/amigo/regist/{friend_name}")
-    public ModelAndView viewFreind(@PathVariable("friend_name")String friendname)
+    @RequestMapping(value = "/amigo/regist", method= RequestMethod.POST)
+    public ModelAndView GoAimgoRegist(
+            @RequestParam String name, //생략이 가능
+            @RequestParam("phone") String phone,
+            @RequestParam("email") String email
 
-
-    {
+    ){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("amigo/view_friend");
-        mav.addObject("friend_name",friendname);
-        return mav;
-    }
-
-    @RequestMapping(value="/amigo/regist/go",method = RequestMethod.POST)
-    public ModelAndView regist_go(
-            @RequestParam("friend_name") String friendname,
-            @RequestParam("phone_number") String phonenumber,
-            @RequestParam String email){
-
-        System.out.println(friendname);
-        System.out.println(phonenumber);
-        System.out.println(email);
-
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("amigo/regist_go");
-        mav.addObject("friend_name",friendname);
-        mav.addObject("phone_number",phonenumber);
-        mav.addObject("email",email);
+        mav.setViewName("amigo/amigo_regist_go");
+        mav.addObject("name", name);
+        mav.addObject("phone", phone);
+        mav.addObject("email", email);
 
         return mav;
     }
-
-
-
 
 }
-
-
