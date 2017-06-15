@@ -21,5 +21,7 @@
 
 </ul>
 <a href="/bbs"> 전체 글보기</a>
+
+<a href="/bs_sample"> 친구 보기</a>
 </body>
 </html>

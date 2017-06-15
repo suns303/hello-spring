@@ -28,6 +28,7 @@ public class Amigo {
         this.email = email;
     }
 
+
     public String getName() {
         return name;
     }
@@ -51,4 +52,7 @@ public class Amigo {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
 }

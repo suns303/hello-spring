@@ -24,13 +24,15 @@
     <h3 class="text-muted"> 친구등록화면입니다.</h3>
 </div>
 
-<form action="/amigo/regist/go" method="post">
+
+<div class="jumbotron">
+<form action="/amigo/regist" method="post">
 
     <div class="input-group input-group-lg">
                 <span class="input-group-addon">
                 <i class="glyphicon glyphicon-ok-sign"></i>친구이름
                 </span>
-        <input type="text" name="friendname" class="form-control" placeholder="친구이름">
+        <input type="text" name="name" class="form-control" placeholder="친구이름">
     </div>
 
 
@@ -38,7 +40,7 @@
                 <span class="input-group-addon">
                 <i class="glyphicon glyphicon-ok-sign"></i>핸드폰
                 </span>
-        <input type="text" name="phonenumber" class="form-control" placeholder="핸드폰">
+        <input type="text" name="phone" class="form-control" placeholder="핸드폰">
     </div>
 
 
@@ -52,7 +54,7 @@
 
     <p><input type = "submit" value="친구등록하기"  class="btn btn-lg btn-success" href="#" role="button"></p>
 </form>
-
+</div>
 
 </body>
 </html>

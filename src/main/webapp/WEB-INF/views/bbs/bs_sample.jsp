@@ -126,7 +126,8 @@
                 <span class="text-muted">Hadoop Engineer</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-                <img src="/asset/img/soonsung.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+
+               <img src="/asset/img/soonsung.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                 <h4>SOONSUNG HWANG</h4>
                 <span class="text-muted">UI/UX Developer</span>
             </div>

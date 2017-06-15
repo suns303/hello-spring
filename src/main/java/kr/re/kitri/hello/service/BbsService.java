@@ -5,6 +5,7 @@ import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -24,19 +25,10 @@ public class BbsService {
      */
     public void registArticle(Article article) {
 
-//        ArticleDao dao = new ArticleDao();
         dao.insertArticle(article);
 
     }
 
-    /**
-     * 글 전체 보기
-     * @return 전체글
-     */
-    public List<Article> viewArticles() {
-
-        return null;
-    }
 
     /**
      * 상세글보기
@@ -45,8 +37,16 @@ public class BbsService {
     */
     public Article viewArticle(String articleId) {
 
-        return null;
 
+        return dao.selectArticleById(articleId);
     }
 
+    /**
+     * 전체글보기
+     * @return
+     */
+
+    public List<Article> getArticles() {
+        return dao.selectAllArticles();
+    }
 }

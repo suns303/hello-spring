@@ -14,9 +14,9 @@
 <body>
 <h1> 다음과 같이 등록되었습니다.</h1>
 <ul>
-    <li>${friendname}</li>
-    <li>${phonenumber}</li>
-    <li>${email}</li>
+    <li>${amigo.name}</li>
+    <li>${amigo.phone}</li>
+    <li>${amigo.email}</li>
 
 
 </ul>

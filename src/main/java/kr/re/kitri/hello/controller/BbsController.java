@@ -5,56 +5,69 @@ import kr.re.kitri.hello.model.Article;
 import kr.re.kitri.hello.service.BbsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 /**
- * /bbs .. 전체보기
- * /bbs/15.. 상세보기(15번 글)
- *  /bbs/15/modify.. 수정(15번 글 수정)
- *  /bbs/15/remove .. 삭제(15번 글 삭제)
+ *  /bbs .. 전체보기
+ *  /bbs/{articledId}.. 상세보기(15번 글)
+ *  /bbs/{articledId}/modify.. 수정(15번 글 수정)
+ *  /bbs/{articledId}/remove .. 삭제(15번 글 삭제)
+ *
  *  /bbs/write .. 글 작성 화면 로딩
  *  /bbs/write/do .. 글 작성하기
+ *
  */
 @Controller
+@RequestMapping("/bbs")
 public class BbsController {
 
     @Autowired
     private BbsService service;
 
+    /**
+     *  전체보기
+     */
 
-    @RequestMapping("/bbs")
+    @RequestMapping("")
     public ModelAndView viewAll(){
 
         //전체보기를 하기 위한 데이터를 가져온다.
-        MockArticle mock = new MockArticle();
-        List<Article> list = mock.getArticles();
+
+        List<Article> list =  service.getArticles();
 
         return new ModelAndView("bbs/view_all")
                 .addObject("list",list);
     }
 
-    @RequestMapping("/bbs/{articleId}")
+
+    /**
+     * 글 상세보기
+     */
+
+    @RequestMapping("/{articleId}")
     public ModelAndView viewDetail(@PathVariable("articleId") String articleId) {
 
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("bbs/view_detail");
-        mav.addObject("articleId",articleId);
-        return mav;
+        Article article = service.viewArticle(articleId);
+
+
+        return new ModelAndView("bbs/view_detail").
+                addObject("article",article);
 
     }
 
-    @RequestMapping(value= "/bbs/write",method= RequestMethod.GET)
+
+    //글쓰기 화면 보기
+    @GetMapping("/write")
     public String write(){
         return "bbs/write";
     }
 
-    @RequestMapping(value="/bbs/write", method = RequestMethod.POST)
+
+    //실제 글쓰기
+    @PostMapping("/write")
     public ModelAndView write_do(Article article){
 
         System.out.println(article);
@@ -66,7 +79,6 @@ public class BbsController {
         mav.addObject("article",article);
 
         return mav;
-
     }
 
 

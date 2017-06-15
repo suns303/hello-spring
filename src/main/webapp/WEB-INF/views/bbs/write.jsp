@@ -26,7 +26,6 @@
 
 
         <form action="/bbs/write", method="Post">
-
             <div class="input-group input-group-lg">
                 <span class="input-group-addon">
                 <i class="glyphicon glyphicon-ok-sign"></i>글번호
@@ -90,7 +89,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer text-center" >
         <p>&copy; 2016 Company, Inc.</p>
     </footer>
 
