@@ -15,4 +15,13 @@ public interface ArticleDao {
 
     List<Article> selectAllArticles();
 
+    void updateArticle(String articleId, Article article);
+
+    void deleteArticle(String articleId);
 }
+
+
+
+
+
+

@@ -37,16 +37,11 @@ public class AmigoDaoTest {
     @Test
     public void testInsertAmigo(){
 
-//        AmigoDao dao = context.getBean("amigoDao",AmigoDao.class);
-
         Amigo amigo = new Amigo();
         amigo.setName("kyungyeon1");
         amigo.setPhone("010660744321");
         amigo.setEmail("mil1kis");
         amigoDao.insertAmigo(amigo);
-//
-//        dao.insertAmigo(amigo);
 
     }
-
 }

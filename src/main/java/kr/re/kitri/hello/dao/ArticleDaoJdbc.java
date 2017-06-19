@@ -91,6 +91,16 @@ public class ArticleDaoJdbc implements ArticleDao {
         }
     }
 
+    @Override
+    public void updateArticle(String articleId, Article article) {
+
+    }
+
+    @Override
+    public void deleteArticle(String articleId) {
+
+    }
+
 
     /**
      * 글상세보기
@@ -128,6 +138,7 @@ public class ArticleDaoJdbc implements ArticleDao {
         }
 
     }
+
 }
 
 

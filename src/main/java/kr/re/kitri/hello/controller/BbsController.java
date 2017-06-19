@@ -32,16 +32,31 @@ public class BbsController {
      */
 
     @RequestMapping("")
-    public ModelAndView viewAll(){
+    public ModelAndView viewAll() {
 
-        //전체보기를 하기 위한 데이터를 가져온다.
-
-        List<Article> list =  service.getArticles();
+        //전체보기를 하기위한 데이터를 가져온다.
+        List<Article> list = service.getArticles();
 
         return new ModelAndView("bbs/view_all")
-                .addObject("list",list);
+                .addObject("list", list);
     }
 
+
+    /**
+     * 글 전체보기 API 버전
+     * /bbs/api  .. 전체보기 (API)
+     * <p>
+     * 1. @ResponseBody
+     * 2. 리턴타입을 List<Article>을 리턴한다 그러면 JSON으로 벼환해줄것이다.
+     */
+
+    @RequestMapping("/api")
+    @ResponseBody
+    public List<Article> viewAllAPI() {
+        List<Article> list = service.getArticles();
+
+        return list;
+    }
 
     /**
      * 글 상세보기
@@ -55,6 +70,16 @@ public class BbsController {
 
         return new ModelAndView("bbs/view_detail").
                 addObject("article",article);
+
+    }
+
+    @RequestMapping("/{articleId}/api")
+    @ResponseBody
+    public Article viewDetailApi(@PathVariable String articleId) {
+
+        Article article = service.viewArticle(articleId);
+
+        return article;
 
     }
 
@@ -79,6 +104,12 @@ public class BbsController {
         mav.addObject("article",article);
 
         return mav;
+    }
+
+    @PostMapping("/write/api")
+    public String doWriteApi(@RequestBody Article article) {
+        service.registArticle(article);
+        return "bbs/view_all";
     }
 
 

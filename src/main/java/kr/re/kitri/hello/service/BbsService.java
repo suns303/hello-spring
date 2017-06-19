@@ -40,6 +40,16 @@ public class BbsService {
         return dao.selectArticleById(articleId);
     }
 
+
+    public void modifyArticle(String articleId, Article article) {
+        dao.updateArticle(articleId, article);
+    }
+
+    public void removeArticle(String articleId) {
+        dao.deleteArticle(articleId);
+    }
+
+
     /**
      * 전체글보기
      * @return
